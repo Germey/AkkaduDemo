@@ -1,0 +1,30 @@
+{
+  "name": "@akkadu/agora-rtc-mock",
+  "version": "2.3.2",
+  "module": "dist/index.js",
+  "license": "ISC",
+  "scripts": {
+    "test": "NODE_ENV=test jest --config ./tests/config.js",
+    "clean": "rm -rf ./dist",
+    "build": "rm -rf ./dist && yarn rollup -c ./rollup.config.js",
+    "start": "node ./tests/bin/www"
+  },
+  "typings": "index.d.ts",
+  "devDependencies": {
+    "ejs": "^2.7.4",
+    "expect": "^24.9.0",
+    "express": "^4.17.1",
+    "rollup": "^1.24.0",
+    "rollup-plugin-bundle-worker": "^0.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "dependencies": {
+    "@akkadu/error": "^2.1.0",
+    "@akkadu/logger": "^2.1.0",
+    "validate.js": "^0.13.1"
+  },
+  "main": "index.js",
+  "author": "tnieminen",
+  "description": "",
+  "gitHead": "08e79a5e69fff73177a126ad03318e5ada600cd0"
+}

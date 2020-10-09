@@ -6,8 +6,9 @@
 </template>
 
 <script>
+/* eslint-disable */
+ const Akkadu = () => import('../src/agora-rtc-mock') 
 import HelloWorld from './components/HelloWorld.vue'
-import Akkadu from '@akkadu/akkadu-rtc'
 
 export default {
   name: 'App',

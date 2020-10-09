@@ -1,0 +1,42 @@
+{
+  "env": {
+    "test": {
+      "plugins": [
+        // jest doesn't support export/import syntax
+        "@babel/plugin-transform-modules-commonjs",
+        // jest does not support dynamic importing
+        "babel-plugin-transform-dynamic-import"
+        ]
+    }
+  },
+  // preset-env should use core-js and browserlist found in our
+  // package.json to intelligently polyfill bundles based upon usage
+  "presets": [
+    ["@babel/preset-env",{
+      "modules": false,
+      "useBuiltIns": "usage",
+      "corejs": {
+        "version":3,
+        "proposals": true
+        }
+    }
+    ]
+  ],
+  "plugins": [
+    // allow parsing of import()
+    "@babel/syntax-dynamic-import",
+    // Without this plugin regenatorRuntime will not be defined.
+    // This basically polyfills async-await and generators in the browser.
+    // Better way to implement this might be described in the docs
+    // @see https://babeljs.io/docs/en/babel-preset-env
+    // But this was the only way I could get it to work
+    "@babel/plugin-transform-runtime"
+    ],
+    "ignore": [
+      "**/lib.opus.js",
+      "**/*.spec.js",
+      "node_modules"
+      // "/core-js/", // let's not babelify corejs or babel runtime itself
+      // "/@babel/runtime/" 
+    ]
+}
